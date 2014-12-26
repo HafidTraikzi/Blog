@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="background">
+  <div class="container">
+    <header class="header">
+    <p class="font-size">Le journal d'Hafid</p>
+    <p class="up">Confession intime d'un développeur web...</p>
+    </header>
+    <div class="menu">
+      <ul>
+      <li><%= link_to "Accueil", articles_path %></li>
+      <li><%= link_to "Les dessous de charme" %></li>
+      </ul>
+    </div>
+    <div class="page"> 
+      <div id="main_content">
+        <div id="header">
+          <p>All Articles</p>
+     
+          <div class="buttons">
+            <button class="button"><%= link_to "New Articles", new_article_path %></button>
+          </div>
+        </div>
+      </div>
+     
+        <% flash.each do |name, msg| %>
+          <%= content_tag(:div, msg, class: "alert") %>
+        <% end %>
+      <%= yield %>
+    </div>
+  </div>
+</body>
+</html>
