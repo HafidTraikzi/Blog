@@ -42,6 +42,8 @@ class ArticlesController < ApplicationController
     redirect_to articles_path
     end
 
+    before_action :authenticate_user!, except: [:index, :show]
+
     private
 
     def article_params
