@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
     def index
-        @articles = Article.all.order("created_at DESC")
+        @articles = Article.page(params[:page]).per(10)
     end
 
     def new 
